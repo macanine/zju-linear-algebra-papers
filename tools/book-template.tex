@@ -1,0 +1,40 @@
+% !TEX program = xelatex
+% 合集主文件模板：由 tools/build.py 依据根目录 book-*.yaml 生成 main.tex
+\documentclass[UTF8,a4paper,11pt]{ctexart}
+
+\input{preamble.tex}
+
+\renewcommand{\schoolname}{<<SCHOOL>>}
+\renewcommand{\coursename}{<<COURSE_TITLE>>}
+\renewcommand{\booktitle}{<<HEADER>>}
+
+\begin{document}
+
+% ==================== 封面 ====================
+\begin{titlepage}
+\centering
+\vspace*{0.6cm}
+{\zihao{1}\bfseries\ziju{0.15} <<SCHOOL>>}\\[0.8em]
+{\large\ziju{0.3} ZHEJIANG UNIVERSITY}\\[2.8em]
+{\Huge\bfseries <<COURSE_TITLE>>}\\[0.9em]
+{\Huge\bfseries <<BOOK_TITLE>>}\\[2.6em]
+{\LARGE <<SUBTITLE>>}\\[1.5em]
+{\large <<COUNT_LINE>>}\\[2.4em]
+{\large \today}
+\vfill
+\end{titlepage}
+
+% ==================== 目录 ====================
+\pagenumbering{Roman}
+\phantomsection
+\addcontentsline{toc}{section}{目录}
+\tableofcontents
+
+% ==================== 正文 ====================
+\clearpage
+\pagenumbering{arabic}
+\setcounter{page}{1}
+
+<<PAPERS>>
+
+\end{document}

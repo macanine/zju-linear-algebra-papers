@@ -1,0 +1,2 @@
+PyMuPDF>=1.24   # tools/render.py 渲染扫描件
+PyYAML>=6.0     # tools/build.py 读取根目录 book-*.yaml
