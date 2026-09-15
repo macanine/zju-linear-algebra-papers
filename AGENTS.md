@@ -112,7 +112,8 @@ tex 里不写 `\documentclass`、`\paperhead`、`\section`。
 ```
 
 卷序固定为学年由近及远；完成品不含使用说明页，只有封面、目录、正文。封面与卷头突出校名（浙江大学），
-页眉左侧也是校名开头，改法集中在 `tools/preamble.tex` 的 `\paperhead` 与 `tools/book-template.tex` 的封面。封面上的“共 N 套 · M 题”由构建脚本按实际统计写入。
+页眉左侧也是校名开头，改法集中在 `tools/preamble.tex` 的 `\paperhead` 与 `tools/book-template.tex` 的封面。封面上的“共 N 套 · M 题”由构建脚本按实际统计写入；
+封面底部的整理者与联系方式（email、GitHub 仓库）写死在 `tools/book-template.tex`。
 每次构建除合订本外，还会为每套卷单独输出一份 PDF（`out/<学年>-<学期>-<考试>-<课程>.pdf`，无封面目录，页眉左侧为课程名），
 供 README 表格逐行链接。新增合集＝在根目录加一个 `book-*.yaml` 改 `书名` 与 `筛选`。
 
