@@ -1,12 +1,6 @@
 # zju-linear-algebra-papers
 
-浙江大学《线性代数》历年试题的 LaTeX 重排版：**题目卷**留作答空白，**解析卷**逐题给解答。
-
-## 下载 · 《线性代数（甲）》期中（秋冬）
-
-9 套 · 84 题，两版各 58 页。
-
-合订本：[题目卷](https://raw.githubusercontent.com/macanine/zju-linear-algebra-papers/main/out/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E7%94%B2-%E6%9C%9F%E4%B8%AD-%E7%A7%8B%E5%86%AC-%E9%A2%98%E7%9B%AE%E5%8D%B7.pdf) · [解析卷](https://raw.githubusercontent.com/macanine/zju-linear-algebra-papers/main/out/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E7%94%B2-%E6%9C%9F%E4%B8%AD-%E7%A7%8B%E5%86%AC-%E8%A7%A3%E6%9E%90%E5%8D%B7.pdf)
+## 《线性代数（甲）》期中（秋冬）　[题目卷](https://raw.githubusercontent.com/macanine/zju-linear-algebra-papers/main/out/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E7%94%B2-%E6%9C%9F%E4%B8%AD-%E7%A7%8B%E5%86%AC-%E9%A2%98%E7%9B%AE%E5%8D%B7.pdf) · [解析卷](https://raw.githubusercontent.com/macanine/zju-linear-algebra-papers/main/out/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E7%94%B2-%E6%9C%9F%E4%B8%AD-%E7%A7%8B%E5%86%AC-%E8%A7%A3%E6%9E%90%E5%8D%B7.pdf)
 
 | 学年 | 题数 | 题目卷 | 解析卷 |
 | :---: | ---: | :--- | :--- |

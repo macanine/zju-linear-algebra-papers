@@ -160,7 +160,7 @@ https://raw.githubusercontent.com/macanine/zju-linear-algebra-papers/main/out/<�
 `<学年>-<学期>-<考试>-<课程>[-解析].pdf`（单套，`-解析` 为解析版）。
 ```
 
-新增/删除成品 PDF 后，README 必须同步：合订本一行两链接、单套表一行两列（题目卷 / 解析卷），
+新增/删除成品 PDF 后，README 必须同步：合订本链接并进标题、单套表一行两列（题目卷 / 解析卷），
 表内题数由 `papers/*.tex` 统计。写完自查一遍表里每个链接是否都对应 `out/` 里实际存在的文件。
 
 ## 7. 质量流程
