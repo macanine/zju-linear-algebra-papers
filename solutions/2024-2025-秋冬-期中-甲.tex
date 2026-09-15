@@ -1,0 +1,481 @@
+% 来源：解析据 papers/2024-2025-秋冬-期中-甲.tex 撰写（原卷见 sources/2024-2025-秋冬-期中-甲.pdf）
+
+\begin{solution}
+由伴随矩阵的基本关系 $AA^{*}=|A|E$ 得 $|A^{*}|=|A|^{n-1}$，本题 $n=4$。$A^{*}$ 是下三角矩阵，故
+\[
+|A^{*}|=1\cdot1\cdot1\cdot8=8=|A|^{3},\qquad |A|=2,
+\]
+于是 $A$ 可逆，且 $A=|A|(A^{*})^{-1}=2(A^{*})^{-1}$。由 $A^{*}$ 的下三角形状解 $A^{*}X=E$，得
+\[
+(A^{*})^{-1}=\begin{pmatrix}1&0&0&0\\0&1&0&0\\-1&0&1&0\\0&\frac38&0&\frac18\end{pmatrix},\qquad
+A=2(A^{*})^{-1}=\begin{pmatrix}2&0&0&0\\0&2&0&0\\-2&0&2&0\\0&\frac34&0&\frac14\end{pmatrix}.
+\]
+把 $ABA^{-1}=BA^{-1}+3E$ 两边右乘 $A$，得 $AB=B+3A$，即
+\[
+(A-E)B=3A,\qquad B=3(A-E)^{-1}A .
+\]
+而
+\[
+A-E=\begin{pmatrix}1&0&0&0\\0&1&0&0\\-2&0&1&0\\0&\frac34&0&-\frac34\end{pmatrix}.
+\]
+逐行回代求 $(A-E)^{-1}$：前两行给出 $x_1=y_1,\ x_2=y_2$，第三行给出 $x_3=2y_1+y_3$，第四行给出 $x_4=y_2-\frac43y_4$，故
+\[
+(A-E)^{-1}=\begin{pmatrix}1&0&0&0\\0&1&0&0\\2&0&1&0\\0&1&0&-\frac43\end{pmatrix},\qquad
+(A-E)^{-1}A=\begin{pmatrix}2&0&0&0\\0&2&0&0\\2&0&2&0\\0&1&0&-\frac13\end{pmatrix}.
+\]
+\ans{$B=3(A-E)^{-1}A=\begin{pmatrix}6&0&0&0\\0&6&0&0\\6&0&6&0\\0&3&0&-1\end{pmatrix}$。}
+\end{solution}
+
+\begin{solution}
+以 $\alpha_1,\alpha_2,\alpha_3,\alpha_4$ 为列构造矩阵 $A$，作初等行变换化为行最简形：
+\[
+A=\begin{pmatrix}2&1&1&5\\-1&1&2&3\\3&1&1&6\\4&1&1&7\end{pmatrix}
+\to\begin{pmatrix}1&0&0&1\\0&1&0&2\\0&0&1&1\\0&0&0&0\end{pmatrix}.
+\]
+主元出现在前三列，故 $r(\alpha_1,\alpha_2,\alpha_3,\alpha_4)=3$，$\alpha_1,\alpha_2,\alpha_3$ 线性无关，构成一个极大线性无关组；第四列给出坐标 $(1,2,1)^{T}$，即 $\alpha_4=\alpha_1+2\alpha_2+\alpha_3$。
+\ans{秩为 $3$；$\alpha_1,\alpha_2,\alpha_3$ 是一个极大线性无关组，且 $\alpha_4=\alpha_1+2\alpha_2+\alpha_3$。}
+\end{solution}
+
+\begin{solution}
+系数矩阵的秩 $r(A)=3$，未知数个数 $n=4$。由秩－零化度定理，齐次方程组 $AX=\theta$ 的解空间维数为 $4-3=1$。
+
+已知 $\eta_1$ 是 $AX=b$ 的解，而 $\eta_2+\eta_3$ 满足 $A(\eta_2+\eta_3)=b+b=2b$，于是
+\[
+A\bigl(2\eta_1-(\eta_2+\eta_3)\bigr)=2b-2b=\theta,
+\]
+即 $2\eta_1-(\eta_2+\eta_3)$ 是 $AX=\theta$ 的解。又
+\[
+2\eta_1-(\eta_2+\eta_3)=2(2,3,4,5)^{T}-(1,2,3,4)^{T}=(3,4,5,6)^{T}\ne\theta,
+\]
+而解空间是一维的，故 $(3,4,5,6)^{T}$ 就是 $AX=\theta$ 的一个基础解系。取特解 $\eta_1=(2,3,4,5)^{T}$，由非齐次方程组解的结构得通解
+\ans{$X=(2,3,4,5)^{T}+k(3,4,5,6)^{T}$，$k$ 为任意实数。}
+\end{solution}
+
+\begin{solution}
+记矩阵（I）为 $A=(\varepsilon_1,\varepsilon_2,\varepsilon_3)$，矩阵（II）为 $B=(\eta_1,\eta_2,\eta_3)$，过渡矩阵约定为 $B=AP$，即 $P=A^{-1}B$。
+
+\textbf{(1)} 由 $A=\begin{pmatrix}1&1&1\\1&1&0\\1&0&0\end{pmatrix}$ 得
+\[
+A^{-1}=\begin{pmatrix}0&0&1\\0&1&-1\\1&-1&0\end{pmatrix},\qquad
+P=A^{-1}B=\begin{pmatrix}0&0&1\\0&1&-1\\1&-1&0\end{pmatrix}
+\begin{pmatrix}-5&4&3\\2&-3&-2\\1&4&2\end{pmatrix}
+=\begin{pmatrix}1&4&2\\1&-7&-4\\-7&7&5\end{pmatrix}.
+\]
+（也可把 $A,B$ 的列按题目所给基的次序写下后直接解矩阵方程 $AP=B$ 验证。）
+
+\textbf{(2)} 用施密特正交化。取 $v_1=\varepsilon_1=(1,1,1)^{T}$，则
+\[
+v_2=\varepsilon_2-\frac{(\varepsilon_2,v_1)}{(v_1,v_1)}v_1=(1,1,0)^{T}-\frac23(1,1,1)^{T}
+=\Bigl(\frac13,\frac13,-\frac23\Bigr)^{T},
+\]
+\[
+v_3=\varepsilon_3-\frac{(\varepsilon_3,v_1)}{(v_1,v_1)}v_1-\frac{(\varepsilon_3,v_2)}{(v_2,v_2)}v_2
+=(1,0,0)^{T}-\frac13(1,1,1)^{T}-\frac12\Bigl(\frac13,\frac13,-\frac23\Bigr)^{T}
+=\Bigl(\frac12,-\frac12,0\Bigr)^{T},
+\]
+这里 $(\varepsilon_3,v_1)=1$，$(\varepsilon_3,v_2)=\frac13$，$(v_2,v_2)=\frac23$。再单位化（$|v_1|=\sqrt3$，$|v_2|=\frac{\sqrt6}{3}$，$|v_3|=\frac{\sqrt2}{2}$）：
+\[
+u_1=\frac1{\sqrt3}\begin{pmatrix}1\\1\\1\end{pmatrix},\qquad
+u_2=\frac1{\sqrt6}\begin{pmatrix}1\\1\\-2\end{pmatrix},\qquad
+u_3=\frac1{\sqrt2}\begin{pmatrix}1\\-1\\0\end{pmatrix}.
+\]
+\ans{(1) $P=\begin{pmatrix}1&4&2\\1&-7&-4\\-7&7&5\end{pmatrix}$；(2) $u_1=\dfrac1{\sqrt3}(1,1,1)^{T}$，$u_2=\dfrac1{\sqrt6}(1,1,-2)^{T}$，$u_3=\dfrac1{\sqrt2}(1,-1,0)^{T}$。}
+\end{solution}
+
+\begin{solution}
+\textbf{(1)} 设 $A$ 为 $n$ 阶反对称矩阵，即 $A^{T}=-A$。由行列式转置不变，并对每行提出因子 $-1$，
+\[
+|A|=|A^{T}|=|-A|=(-1)^{n}|A| .
+\]
+若 $n$ 为奇数，则 $|A|=-|A|$，即 $2|A|=0$，故 $|A|=0$，$A$ 不可逆；所以 $A$ 可逆的必要条件是 $n$ 为偶数。
+
+\textbf{(2)} 不是充分条件。$n$ 为偶数时仍存在不可逆的反对称矩阵，例如 $n$ 阶零矩阵 $O$ 满足 $O^{T}=-O$，但 $|O|=0$，不可逆。
+\ans{(1) 已证；(2) 不是充分条件，零矩阵（$n$ 为偶数）即为反例。}
+\end{solution}
+
+\begin{solution}
+由 $AX=A+2X$ 得 $(A-2E)X=A$。先算
+\[
+A-2E=\begin{pmatrix}2&2&3\\1&-1&0\\-1&2&1\end{pmatrix},
+\qquad
+|A-2E|=2\cdot(-1)-2\cdot1+3\cdot1=-1\ne0,
+\]
+故 $A-2E$ 可逆。用伴随矩阵求逆，得
+\[
+(A-2E)^{-1}=\begin{pmatrix}1&-4&-3\\1&-5&-3\\-1&6&4\end{pmatrix}.
+\]
+于是
+\[
+X=(A-2E)^{-1}A=\begin{pmatrix}1&-4&-3\\1&-5&-3\\-1&6&4\end{pmatrix}
+\begin{pmatrix}4&2&3\\1&1&0\\-1&2&3\end{pmatrix}
+=\begin{pmatrix}3&-8&-6\\2&-9&-6\\-2&12&9\end{pmatrix}.
+\]
+\ans{$X=\begin{pmatrix}3&-8&-6\\2&-9&-6\\-2&12&9\end{pmatrix}$（代回即得 $(A-2E)X=A$）。}
+\end{solution}
+
+\begin{solution}
+以 $\alpha_1,\alpha_2,\alpha_3,\alpha_4$ 为列构造 $5\times4$ 矩阵，作初等行变换：
+\[
+\begin{pmatrix}6&1&1&7\\4&0&4&1\\1&2&-9&0\\-1&3&-16&-1\\2&-4&22&3\end{pmatrix}
+\to\begin{pmatrix}1&0&1&0\\0&1&-5&0\\0&0&0&1\\0&0&0&0\\0&0&0&0\end{pmatrix}.
+\]
+主元出现在第 $1,2,4$ 列，故向量组的秩为 $3$，$\alpha_1,\alpha_2,\alpha_4$ 线性无关，是一个极大线性无关组。（第 $3$ 列同时给出 $\alpha_3=\alpha_1-5\alpha_2$，可见不取 $\alpha_3$。）
+\ans{秩为 $3$；$\alpha_1,\alpha_2,\alpha_4$ 是一个极大线性无关组。}
+\end{solution}
+
+\begin{solution}
+记 $A=(\varepsilon_1,\varepsilon_2,\varepsilon_3)$，$B=(\beta_1,\beta_2,\beta_3)$，过渡矩阵约定为 $B=AP$，即 $P=A^{-1}B$。
+
+\textbf{(1)} 按题目所给基的次序把列写好：
+\[
+A=\begin{pmatrix}1&2&3\\2&3&7\\1&3&1\end{pmatrix},\qquad
+B=\begin{pmatrix}3&5&1\\1&2&1\\4&1&-6\end{pmatrix}.
+\]
+由 $|A|=1\ne0$ 知 $A$ 可逆；解矩阵方程 $AP=B$（或求 $A^{-1}B$）得
+\[
+P=A^{-1}B=\begin{pmatrix}-27&-71&-41\\9&20&9\\4&12&8\end{pmatrix}.
+\]
+
+\textbf{(2)} $\alpha$ 在基（I）下的坐标为 $X=(0,1,-1)^{T}$，故
+\[
+\alpha=AX=0\cdot\varepsilon_1+\varepsilon_2-\varepsilon_3=(2,3,3)^{T}-(3,7,1)^{T}=(-1,-4,2)^{T}.
+\]
+设 $\alpha$ 在基（II）下的坐标为 $Y=(y_1,y_2,y_3)^{T}$，则 $BY=\alpha$，即
+\[
+\begin{cases}
+3y_1+5y_2+y_3=-1,\\
+y_1+2y_2+y_3=-4,\\
+4y_1+y_2-6y_3=2 .
+\end{cases}
+\]
+解得 $y_1=-\dfrac{105}{4}$，$y_2=\dfrac{37}{2}$，$y_3=-\dfrac{59}{4}$。
+\ans{(1) $P=\begin{pmatrix}-27&-71&-41\\9&20&9\\4&12&8\end{pmatrix}$；(2) $Y=\Bigl(-\dfrac{105}{4},\ \dfrac{37}{2},\ -\dfrac{59}{4}\Bigr)^{T}$。}
+\end{solution}
+
+\begin{solution}
+\textbf{(1)} $(\alpha,\beta)=a_1b_2+a_2b_1$ 关于 $\alpha,\beta$ 对称（$a_1b_2+a_2b_1=b_1a_2+b_2a_1$），且对每个变元都是线性的，但正定性不成立：取 $\alpha=(1,-1)$，则
+\[
+(\alpha,\alpha)=1\cdot(-1)+(-1)\cdot1=-2<0,
+\]
+不满足内积公理中 $(\alpha,\alpha)>0$（对 $\alpha\ne\theta$）。故它不构成 $R^{2}$ 上的内积，$R^{2}$ 对它不构成欧氏空间。
+
+\textbf{(2)} 记 $(\alpha,\beta)=(a_1+a_2)b_1+(a_1+2a_2)b_2$，逐条验证内积公理。
+
+\emph{对称性}：$( \beta,\alpha)=(b_1+b_2)a_1+(b_1+2b_2)a_2=a_1b_1+a_1b_2+a_2b_1+2a_2b_2$，与 $(\alpha,\beta)=a_1b_1+a_2b_1+a_1b_2+2a_2b_2$ 相同。
+
+\emph{线性性}：对实数 $c$，$(c\alpha,\beta)=c(\alpha,\beta)$；对 $\gamma=(c_1,c_2)$ 直接相加得 $(\alpha+\gamma,\beta)=(\alpha,\beta)+(\gamma,\beta)$，即对第一个变元线性，配合对称性知双线性。
+
+\emph{正定性}：$(\alpha,\alpha)=a_1^{2}+2a_1a_2+2a_2^{2}$，其二次型矩阵为 $\begin{pmatrix}1&1\\1&2\end{pmatrix}$，特征值 $\dfrac{3\pm\sqrt5}{2}$ 均为正（顺序主子式 $\Delta_1=1$、$\Delta_2=1$ 也都大于零），故二次型正定：$(\alpha,\alpha)\ge0$，且等号仅在 $\alpha=\theta$ 时成立。
+
+所以 (2) 是内积，$R^{2}$ 对它构成欧氏空间。
+\ans{(1) 不构成内积（正定性不成立，反例 $\alpha=(1,-1)$ 时 $(\alpha,\alpha)=-2$）；(2) 构成内积。}
+\rem{对称性与线性性只是内积的前两条公理，正定性必须单独验：二次型矩阵正定等价于各阶顺序主子式全正（或特征值全正），而不能只看 $(\alpha,\alpha)$ 在个别向量上为正。}
+\end{solution}
+
+\begin{solution}
+令 $S=\alpha_1+\alpha_2+\cdots+\alpha_m$，则题设的每个 $\beta_i$ 可写成
+\[
+\beta_i=S-\alpha_i\qquad(i=1,2,\cdots,m),
+\]
+于是每个 $\beta_i$ 都可由 $\alpha_1,\cdots,\alpha_m$ 线性表示，即 $\operatorname{span}\{\beta_1,\cdots,\beta_m\}\subseteq\operatorname{span}\{\alpha_1,\cdots,\alpha_m\}$。
+
+反过来，把诸 $\beta$ 相加：
+\[
+\sum_{i=1}^{m}\beta_i=\sum_{i=1}^{m}(S-\alpha_i)=mS-S=(m-1)S .
+\]
+因 $m>1$，有 $S=\dfrac{1}{m-1}\sum\limits_{i=1}^{m}\beta_i$，从而
+\[
+\alpha_i=S-\beta_i=\frac{1}{m-1}\sum_{j=1}^{m}\beta_j-\beta_i\qquad(i=1,\cdots,m),
+\]
+即每个 $\alpha_i$ 也可由 $\beta_1,\cdots,\beta_m$ 线性表示，反向包含也成立。两组向量张成同一子空间，故 $\beta_1,\cdots,\beta_m$ 与 $\alpha_1,\cdots,\alpha_m$ 有相同的秩。
+\qed
+\end{solution}
+
+\begin{solution}
+由可逆矩阵的运算性质，
+\[
+A^{-1}+B^{-1}=A^{-1}(A+B)B^{-1},
+\]
+因为 $A^{-1}(A+B)B^{-1}=A^{-1}AB^{-1}+A^{-1}BB^{-1}=B^{-1}+A^{-1}$。
+
+因 $A,B$ 可逆，$A^{-1},B^{-1}$ 都存在；又题设 $A+B$ 可逆，故 $A^{-1}+B^{-1}$ 是三个可逆矩阵的乘积，必可逆，且
+\[
+(A^{-1}+B^{-1})^{-1}=\bigl(A^{-1}(A+B)B^{-1}\bigr)^{-1}=B(A+B)^{-1}A .
+\]
+\ans{$A^{-1}+B^{-1}$ 可逆，且 $(A^{-1}+B^{-1})^{-1}=B(A+B)^{-1}A$。}
+\end{solution}
+
+\begin{solution}
+写出增广矩阵，作初等行变换化为行最简形：
+\[
+\left(\begin{array}{cccc|c}
+1&1&-2&3&0\\2&1&-6&4&-1\\3&2&-8&7&-1\\1&-1&-6&-1&-2
+\end{array}\right)
+\to\left(\begin{array}{cccc|c}
+1&0&-4&1&-1\\0&1&2&2&1\\0&0&0&0&0\\0&0&0&0&0
+\end{array}\right).
+\]
+可见 $r(A)=r(\bar A)=2<4$，方程组有无穷多解，且同解方程组为
+\[
+x_1-4x_3+x_4=-1,\qquad x_2+2x_3+2x_4=1 .
+\]
+取 $x_3=s,\ x_4=t$ 为自由未知量，则 $x_1=-1+4s-t$，$x_2=1-2s-2t$。
+\ans{$(x_1,x_2,x_3,x_4)=(-1+4s-t,\ 1-2s-2t,\ s,\ t)$，$s,t$ 为任意实数。}
+\end{solution}
+
+\begin{solution}
+记 $J$ 为全 $1$ 矩阵，$D=\operatorname{diag}(x,-x,y,-y)$，则待求行列式的矩阵为 $J+D$，其中 $J=\mathbf{1}\mathbf{1}^{T}$，$\mathbf{1}=(1,1,1,1)^{T}$。且
+\[
+|D|=x\cdot(-x)\cdot y\cdot(-y)=x^{2}y^{2}.
+\]
+当 $xy\ne0$ 时 $D$ 可逆，由矩阵行列式引理
+\[
+|D+\mathbf{1}\mathbf{1}^{T}|=|D|\bigl(1+\mathbf{1}^{T}D^{-1}\mathbf{1}\bigr),
+\]
+而
+\[
+\mathbf{1}^{T}D^{-1}\mathbf{1}=\frac1x-\frac1x+\frac1y-\frac1y=0,
+\]
+故当 $xy\ne0$ 时行列式 $=x^{2}y^{2}$。等式两端都是 $x,y$ 的多项式，在 $xy\ne0$ 上相等，故对 $xy=0$ 也相等（此时两端同为 $0$）。
+\ans{$x^{2}y^{2}$。}
+\end{solution}
+
+\begin{solution}
+记该 $n$ 阶行列式为 $D_n$。它的每行元素之和都是 $1+2+\cdots+n=\dfrac{n(n+1)}{2}$。把第 $2,\cdots,n$ 列都加到第 $1$ 列，再提出第 $1$ 列的公因子：
+\[
+D_n=\frac{n(n+1)}{2}\,|N|,\qquad
+N=\begin{pmatrix}
+1&2&3&\cdots&n\\
+1&3&4&\cdots&1\\
+1&4&5&\cdots&2\\
+\vdots&\vdots&\vdots&&\vdots\\
+1&1&2&\cdots&n-1
+\end{pmatrix},
+\]
+即 $N$ 的第 $1$ 列全为 $1$，其余各列与原行列式相同。
+
+作行变换 $R_i\leftarrow R_i-R_1$（$i=2,\cdots,n$），再按第 $1$ 列展开。余下的 $n-1$ 阶行列式 $C$ 的第 $i-1$ 行（$i=2,\cdots,n$，列取自原第 $2,\cdots,n$ 列）形如
+\[
+(\underbrace{i-1,\cdots,i-1}_{n-i\ \text{个}},\ \underbrace{i-1-n,\cdots,i-1-n}_{i-1\ \text{个}}).
+\]
+即第 $i-1$ 行的元素恰在第 $n-i$ 列与第 $n-i+1$ 列之间从 $i-1$ 跳到 $i-1-n$。
+
+再作列变换 $C_j\leftarrow C_j-C_{j+1}$（$j=1,\cdots,n-2$），由上述跳变位置可知：第 $j$ 列（$j\le n-2$）只有第 $n-1-j$ 行的元素为 $n$，其余全为 $0$；而末行化为 $(0,\cdots,0,-1)$。于是前 $n-2$ 列构成一个反序排列阵的 $n$ 倍，末行只剩 $-1$，故
+\[
+|C|=(-1)\cdot n^{n-2}\cdot(-1)^{\frac{(n-2)(n-3)}{2}}
+=(-1)^{1+\frac{(n-2)(n-3)}{2}}n^{n-2},
+\]
+其中 $(-1)^{\frac{(n-2)(n-3)}{2}}$ 是 $n-2$ 阶反序排列的符号。因此
+\[
+D_n=\frac{n(n+1)}{2}\cdot(-1)^{1+\frac{(n-2)(n-3)}{2}}n^{n-2}
+=(-1)^{\frac{n(n-1)}{2}}\frac{n^{n-1}(n+1)}{2},
+\]
+最后一步用了 $1+\dfrac{(n-2)(n-3)}{2}$ 与 $\dfrac{n(n-1)}{2}$ 相差 $2n-4$（偶数），奇偶性相同。
+\ans{$D_n=(-1)^{\frac{n(n-1)}{2}}\dfrac{n^{n-1}(n+1)}{2}$。}
+\end{solution}
+
+\begin{solution}
+\textbf{(1)} 系数矩阵与增广矩阵分别为
+\[
+A=\begin{pmatrix}1&a_1&a_1^{2}\\1&a_2&a_2^{2}\\1&a_3&a_3^{2}\\1&a_4&a_4^{2}\end{pmatrix},
+\qquad
+\bar A=\begin{pmatrix}1&a_1&a_1^{2}&a_1^{3}\\1&a_2&a_2^{2}&a_2^{3}\\1&a_3&a_3^{2}&a_3^{3}\\1&a_4&a_4^{2}&a_4^{3}\end{pmatrix}.
+\]
+$\bar A$ 是 $4$ 阶范德蒙德矩阵，$|\bar A|=\prod\limits_{1\le i<j\le4}(a_j-a_i)$。当 $a_1,a_2,a_3,a_4$ 互异时该乘积非零，故 $r(\bar A)=4$。而 $A$ 只有 $3$ 列，且由前三行组成的 $3$ 阶范德蒙德子式 $\prod\limits_{1\le i<j\le3}(a_j-a_i)\ne0$，故 $r(A)=3$。于是 $r(A)<r(\bar A)$，方程组无解。
+
+\textbf{(2)} 代入 $a_1=a_3=k$、$a_2=a_4=-k$ 后，第 $1,3$ 个方程相同，第 $2,4$ 个方程相同，方程组等价于
+\[
+\begin{cases}
+x_1+kx_2+k^{2}x_3=k^{3},\\
+x_1-kx_2+k^{2}x_3=-k^{3}.
+\end{cases}
+\]
+以 $\eta=(-1,1,1)^{T}$ 代入，得
+\[
+-1+k+k^{2}=k^{3},\qquad -1-k+k^{2}=-k^{3},
+\]
+两式相加得 $2k^{2}-2=0$，即 $k^{2}=1$，故 $k=\pm1$。
+
+当 $k=1$ 时两方程为 $x_1+x_2+x_3=1$ 与 $x_1-x_2+x_3=-1$；当 $k=-1$ 时两方程为 $x_1-x_2+x_3=-1$ 与 $x_1+x_2+x_3=1$，只是把两个方程换了次序。因此无论 $k=1$ 还是 $k=-1$，方程组都等价于
+\[
+x_1+x_3=0,\qquad x_2=1 .
+\]
+令 $x_1=t$，则 $x_3=-t$。
+\ans{$x=(t,1,-t)^{T}$，$t$ 为任意实数。}
+\rem{$k$ 的两个取值给出同一组方程（$-k$ 对应的方程与 $k$ 对应的方程只差次序），故通解不随 $k$ 的符号改变；判无解的关键则是增广矩阵的秩比系数矩阵大 $1$，而这一步由范德蒙德行列式保证。}
+\end{solution}
+
+\begin{solution}
+记该 $n$ 阶行列式的矩阵为 $M$，其元素为 $m_{ij}=x$（$j<i$）、$m_{ij}=j-i+1$（$j\ge i$）。
+
+先作列变换 $C_j\leftarrow C_j-C_{j-1}$（$j=2,\cdots,n$），行列式不变。第 $1$ 列仍为 $(1,x,x,\cdots,x)^{T}$；第 $i$ 行（$i\ge2$）在第 $j$ 列的元素变为：$j<i$ 时为 $0$，$j=i$ 时为 $1-x$，$j>i$ 时为 $1$。即
+\[
+M\to B=\begin{pmatrix}
+1&1&1&\cdots&1\\
+x&1-x&1&\cdots&1\\
+x&0&1-x&\cdots&1\\
+\vdots&\vdots&\vdots&\ddots&\vdots\\
+x&0&0&\cdots&1-x
+\end{pmatrix}.
+\]
+再作行变换 $R_i\leftarrow R_i-R_{i+1}$（$i=1,\cdots,n-1$），行列式仍不变，得
+\[
+B\to\begin{pmatrix}
+1-x&x&0&\cdots&0\\
+0&1-x&x&\cdots&0\\
+\vdots&\vdots&\ddots&\ddots&\vdots\\
+0&0&\cdots&1-x&x\\
+x&0&\cdots&0&1-x
+\end{pmatrix}=(1-x)E+xS,
+\]
+其中 $S$ 是使 $Se_j=e_{j-1}$（下标按循环理解）的 $n$ 次循环置换矩阵，$S^{n}=E$。
+
+$S$ 的特征值为全部 $n$ 次单位根 $\omega_0,\omega_1,\cdots,\omega_{n-1}$，故上式的特征值为 $(1-x)+x\omega_k$。由恒等式 $\prod_k(t-\omega_k)=t^{n}-1$ 得
+\[
+\prod_{k=0}^{n-1}(\lambda+\mu\omega_k)=\lambda^{n}-(-\mu)^{n},
+\]
+取 $\lambda=1-x$、$\mu=x$，就有
+\[
+D_n=|(1-x)E+xS|=\prod_{k=0}^{n-1}\bigl((1-x)+x\omega_k\bigr)
+=(1-x)^{n}-(-x)^{n}=(-1)^{n}\bigl[(x-1)^{n}-x^{n}\bigr].
+\]
+\qed
+\end{solution}
+
+\begin{solution}
+记原行列式的列向量为 $c_1,c_2,c_3$，题设即 $\det(c_1,c_2,c_3)=1$。新行列式的三列依次是 $3c_1$、$4c_1-c_2$、$-c_3$。由行列式关于列的多重线性性，
+\[
+\det(3c_1,\,4c_1-c_2,\,-c_3)
+=3\cdot(-1)\det(c_1,\,4c_1-c_2,\,c_3),
+\]
+而
+\[
+\det(c_1,\,4c_1-c_2,\,c_3)
+=\det(c_1,\,4c_1,\,c_3)-\det(c_1,\,c_2,\,c_3).
+\]
+第一项中第 $2$ 列是第 $1$ 列的 $4$ 倍，两列成比例，其值为 $0$；第二项为 $1$。故新行列式 $=3\cdot(-1)\cdot(0-1)=3$。
+\ans{$3$。}
+\end{solution}
+
+\begin{solution}
+写出增广矩阵，作初等行变换
+\[
+\left(\begin{array}{cccc|c}
+1&1&1&1&0\\
+0&1&2&2&1\\
+0&-1&a-3&-2&b\\
+3&2&1&a&-1
+\end{array}\right)
+\xrightarrow{R_4-3R_1}
+\left(\begin{array}{cccc|c}
+1&1&1&1&0\\
+0&1&2&2&1\\
+0&-1&a-3&-2&b\\
+0&-1&-2&a-3&-1
+\end{array}\right)
+\]
+\[
+\xrightarrow[R_4+R_2]{R_3+R_2}
+\left(\begin{array}{cccc|c}
+1&1&1&1&0\\
+0&1&2&2&1\\
+0&0&a-1&0&b+1\\
+0&0&0&a-1&0
+\end{array}\right).
+\]
+
+\textbf{情形一：$a\ne1$。} 第四行给出 $(a-1)x_4=0$，即 $x_4=0$；第三行给出 $(a-1)x_3=b+1$，即 $x_3=\dfrac{b+1}{a-1}$。回代第二、一行：
+\[
+x_2=1-2x_3-2x_4=\frac{a-2b-3}{a-1},\qquad
+x_1=-x_2-x_3-x_4=\frac{-a+b+2}{a-1},
+\]
+故方程组有唯一解。
+
+\textbf{情形二：$a=1$。} 增广矩阵变为
+\[
+\left(\begin{array}{cccc|c}
+1&1&1&1&0\\
+0&1&2&2&1\\
+0&0&0&0&b+1\\
+0&0&0&0&0
+\end{array}\right).
+\]
+当 $b\ne-1$ 时，第三行是矛盾方程 $0=b+1\ne0$，方程组无解；当 $b=-1$ 时，第三、四行为恒等式，$r(A)=r(\bar A)=2<4$，方程组有无穷多解。此时同解方程组为
+\[
+x_1+x_2+x_3+x_4=0,\qquad x_2+2x_3+2x_4=1,
+\]
+取 $x_3=s,\ x_4=t$ 为自由未知量，则 $x_2=1-2s-2t$，$x_1=-x_2-x_3-x_4=-1+s+t$。
+\ans{$a\ne1$ 时有唯一解 $x_1=\dfrac{-a+b+2}{a-1}$，$x_2=\dfrac{a-2b-3}{a-1}$，$x_3=\dfrac{b+1}{a-1}$，$x_4=0$；
+$a=1$ 且 $b\ne-1$ 时无解；$a=1$ 且 $b=-1$ 时有无穷多解 $(x_1,x_2,x_3,x_4)=(-1+s+t,\ 1-2s-2t,\ s,\ t)$，$s,t$ 为任意实数。}
+\end{solution}
+
+\begin{solution}
+令 $S=\sum\limits_{j=1}^{n}x_j$。原方程组的第 $i$ 个方程可写成
+\[
+a_ix_i+S=b_i,\qquad\text{即}\qquad x_i=\frac{b_i-S}{a_i}\quad(i=1,2,\cdots,n),
+\]
+这里 $a_i\ne0$ 保证除法可行。把 $x_i$ 的表达式代入 $S=\sum\limits_{i=1}^{n}x_i$：
+\[
+S=\sum_{i=1}^{n}\frac{b_i-S}{a_i}=\sum_{i=1}^{n}\frac{b_i}{a_i}-S\sum_{i=1}^{n}\frac1{a_i},
+\]
+整理得
+\[
+S\Bigl(1+\sum_{i=1}^{n}\frac1{a_i}\Bigr)=\sum_{i=1}^{n}\frac{b_i}{a_i}.
+\]
+条件 $1+\sum\limits_{i=1}^{n}\dfrac1{a_i}\ne0$ 恰好保证 $S$ 由此唯一确定：
+\[
+S=\frac{\sum_{i=1}^{n}\dfrac{b_i}{a_i}}{1+\sum_{i=1}^{n}\dfrac1{a_i}},
+\]
+再代回 $x_i=\dfrac{b_i-S}{a_i}$ 即得唯一解。
+\ans{$x_i=\dfrac1{a_i}\Biggl(b_i-\dfrac{\sum_{j=1}^{n}b_j/a_j}{1+\sum_{j=1}^{n}1/a_j}\Biggr)$，$i=1,2,\cdots,n$；方程组有唯一解。}
+\end{solution}
+
+\begin{solution}
+把第 $2,\cdots,n+1$ 行都加到第 $1$ 行，第 $1$ 行的前 $n$ 列都是 $0$，最后一列变成 $\sum\limits_{k=1}^{n}b_k-1$，按第 $1$ 行展开得
+\[
+D_{n+1}=(-1)^{1+(n+1)}\Bigl(\sum_{k=1}^{n}b_k-1\Bigr)|C|=(-1)^{n}\Bigl(\sum_{k=1}^{n}b_k-1\Bigr)|C|,
+\]
+其中 $C$ 是删去第 $1$ 行、第 $n+1$ 列后余下的 $n$ 阶行列式。
+
+由原矩阵的带状结构，$C$ 的元素（行 $r$、列 $j$ 对应原第 $r+1$ 行、第 $j$ 列，$r,j=1,\cdots,n$）为
+\[
+C_{rj}=\begin{cases}1,&r+j=n,\\ -1,&r+j=n+1,\\ 0,&\text{其他},\end{cases}
+\]
+即 $1$ 排在反对角线 $r=n-j$ 上，$-1$ 排在它下一条反对角线 $r=n+1-j$ 上。
+
+求 $|C|$：按第 $n$ 列展开，该列只有 $r=1$ 处的元素 $-1$ 非零，删去第 $1$ 行、第 $n$ 列后余下的 $n-1$ 阶行列式 $C'$ 与 $C$ 形状完全相同（阶数降 $1$），故
+\[
+|C|=(-1)^{1+n}\cdot(-1)\cdot|C'|=(-1)^{n}|C'| .
+\]
+又 $n=1$ 时 $|C|=|-1|=-1$，迭代得
+\[
+|C|=(-1)^{n}(-1)^{n-1}\cdots(-1)^{2}\cdot(-1)=(-1)^{\frac{n(n+1)}{2}} .
+\]
+于是
+\[
+D_{n+1}=(-1)^{n+2}\Bigl(\sum_{k=1}^{n}b_k-1\Bigr)(-1)^{\frac{n(n+1)}{2}}
+=(-1)^{\frac{n(n-1)}{2}}\Bigl(\sum_{k=1}^{n}b_k-1\Bigr),
+\]
+最后一步因 $n+2+\dfrac{n(n+1)}{2}-\dfrac{n(n-1)}{2}=2n+2$ 为偶数。
+\ans{$D_{n+1}=(-1)^{\frac{n(n-1)}{2}}\Bigl(\sum\limits_{k=1}^{n}b_k-1\Bigr)$。}
+\rem{符号 $(-1)^{\frac{n(n-1)}{2}}$ 很容易误写成 $(-1)^{\frac{n(n+1)}{2}}$。代 $n=1,2,3$ 校核：$n=1$ 时 $D_2=b_1-1$，$n=2$ 时 $D_3=1-b_1-b_2$，$n=3$ 时 $D_4=1-b_1-b_2-b_3$，正好是每两行变一次号。}
+\end{solution}
+
+\begin{solution}
+设该 $n$ 阶行列式为 $D=|A|$，第 $i$ 行元素全为 $1$，即 $a_{i1}=a_{i2}=\cdots=a_{in}=1$，以 $A_{kj}$ 记 $a_{kj}$ 的代数余子式。
+
+按第 $i$ 行展开：
+\[
+D=\sum_{j=1}^{n}a_{ij}A_{ij}=\sum_{j=1}^{n}A_{ij}.
+\]
+当 $k\ne i$ 时 $\sum\limits_{j=1}^{n}A_{kj}=0$：把原行列式的第 $k$ 行换成第 $i$ 行（元素全为 $1$），所得行列式第 $k$ 行与第 $i$ 行相同，值为 $0$；而按它的第 $k$ 行展开即得 $\sum\limits_{j=1}^{n}1\cdot A_{kj}=\sum\limits_{j=1}^{n}A_{kj}=0$（此处用到的余子式与原来的完全相同）。这正是 $A^{*}A=|A|E$ 的体现。
+
+于是全部代数余子式之和
+\[
+\sum_{k=1}^{n}\sum_{j=1}^{n}A_{kj}
+=\sum_{j=1}^{n}A_{ij}+\sum_{k\ne i}\sum_{j=1}^{n}A_{kj}
+=D+0=D=|A|,
+\]
+即它等于该行列式的值。
+\qed
+\end{solution}

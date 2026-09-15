@@ -1,0 +1,190 @@
+% 来源：解析据 papers/2019-2020-秋冬-期中-甲.tex 撰写（原卷见 sources/2016-2025-期中-甲-历年真题汇编.pdf 第 7 页）
+
+\begin{solution}
+记该 $n$ 阶行列式为 $D_n$。按最后一行展开：最后一行只有末两个元素非零，
+\[
+D_n=4M_{nn}-4M_{n,n-1},
+\]
+其中删去第 $n$ 行、第 $n$ 列余下的恰是 $D_{n-1}$，故 $M_{nn}=D_{n-1}$；而删去第 $n$ 行、第 $n-1$ 列后，
+余下矩阵呈分块下三角形状
+$\begin{pmatrix}M_{n-2}&0\\ 4e_{n-2}^{T}&1\end{pmatrix}$，
+故 $M_{n,n-1}=D_{n-2}$。于是
+\[
+D_n=4D_{n-1}-4D_{n-2}\qquad(n\ge 3),
+\]
+且 $D_1=4$，$D_2=4\times4-1\times4=12$。
+
+对 $n$ 归纳证明 $D_n=(n+1)2^{n}$：$n=1,2$ 已验证。设结论对 $n-1,n-2$ 成立，则
+\[
+D_n=4\cdot n2^{n-1}-4\cdot(n-1)2^{n-2}
+=2^{n-1}\bigl(4n\bigr)-2^{n}(n-1)
+=2^{n}\bigl(2n-n+1\bigr)=(n+1)2^{n}.
+\]
+\ans{$D_n=(n+1)2^{n}$。}
+\end{solution}
+
+\begin{solution}
+先化简 $A$，再逐项求值。
+
+由 $\alpha^{T}\alpha=1^{2}+0^{2}+(-1)^{2}=2$ 得
+\[
+A^{2}=\alpha(\alpha^{T}\alpha)\alpha^{T}=2\alpha\alpha^{T}=2A,
+\]
+故对正整数 $n$ 有 $A^{n}=2^{n-1}A$。
+
+又 $A$ 为三阶矩阵且 $r(A)=1<3-1=2$，即 $A$ 的所有二阶子式全为零，故其伴随矩阵 $A^{*}=O$，
+从而 $(A^{*})^{n}=O$。于是待求行列式化为
+\[
+|2E-(A^{*})^{n}+A^{n}|=|2E+2^{n-1}A|=2^{3}\Bigl|E+2^{n-2}A\Bigr|.
+\]
+对秩一的 $A=\alpha\alpha^{T}$ 用矩阵行列式引理 $|E+uv^{T}|=1+v^{T}u$，得
+\[
+\Bigl|E+2^{n-2}A\Bigr|=1+2^{n-2}\alpha^{T}\alpha=1+2^{n-1}.
+\]
+\ans{$|2E-(A^{*})^{n}+A^{n}|=8(1+2^{n-1})=2^{n+2}+8$。}
+\rem{此处 $r(A)=1<3-1$（$A$ 为三阶），所以 $A^{*}=O$，不能套用 $A^{*}=|A|A^{-1}$（$A$ 本身不可逆）。}
+\end{solution}
+
+\begin{solution}
+先求 $r(A)$。对 $A$ 作初等行变换
+\[
+A\to\begin{pmatrix}1&3&9\\0&-6&-12\\0&10&20\end{pmatrix},
+\]
+第三行是第二行的 $-\dfrac53$ 倍，故 $r(A)=2$，于是题设 $r(A)=r(B)$ 给出 $r(B)=2$。
+
+由 $B$ 是三阶方阵，$r(B)=2$ 等价于 $|B|=0$。按第一行展开
+\[
+|B|=-a\begin{vmatrix}2&6\\-1&0\end{vmatrix}+b\begin{vmatrix}2&0\\-1&1\end{vmatrix}=-6a+2b,
+\]
+故 $b=3a$；此时 $B$ 的第二、三两行不成比例，秩确为 $2$。
+
+再处理有解条件。设 $X=(x_1,x_2,x_3)^{T}$，对增广矩阵作行变换
+\[
+\begin{pmatrix}1&3&9&b\\2&0&6&1\\-3&1&-7&0\end{pmatrix}
+\to\begin{pmatrix}1&3&9&b\\0&-6&-12&1-2b\\0&10&20&3b\end{pmatrix},
+\]
+底两行成比例，方程组有解当且仅当对应的常数列也成同一比例，即
+\[
+3b=-\frac53(1-2b)\ \Longrightarrow\ 9b=10b-5\ \Longrightarrow\ b=5 .
+\]
+再由 $b=3a$ 得 $a=\dfrac53$。
+\ans{$a=\dfrac53$，$b=5$。}
+\end{solution}
+
+\begin{solution}
+系数矩阵的行列式
+\[
+|A|=\begin{vmatrix}-1&-4&1\\0&a&-3a\\1&3&a+1\end{vmatrix}
+=(-1)\cdot\bigl[a(a+1)+9a\bigr]-(-4)\cdot 3a+1\cdot(-a)=a(1-a),
+\]
+故 $|A|\ne0$ 即 $a\ne0$ 且 $a\ne1$ 时方程组有唯一解。
+
+\textbf{(1) 唯一解（$a\ne0,1$）。}由第二式（$a\ne0$）得 $x_2=3x_3+\dfrac3a$，代入第一式得
+\[
+x_1=-1-4x_2+x_3=-1-\frac{12}{a}-11x_3,
+\]
+再代入第三式：
+\[
+\Bigl(-1-\frac{12}{a}-11x_3\Bigr)+3\Bigl(3x_3+\frac3a\Bigr)+(a+1)x_3=0
+\ \Longrightarrow\ (a-1)x_3=1+\frac3a=\frac{a+3}{a},
+\]
+于是
+\[
+x_3=\frac{a+3}{a(a-1)},\qquad
+x_2=3x_3+\frac3a=\frac{6(a+1)}{a(a-1)},\qquad
+x_1=-1-\frac{12}{a}-11x_3=-\frac{(a+1)(a+21)}{a(a-1)}.
+\]
+
+\textbf{(2) 无解（$a=0$ 或 $a=1$）。}
+当 $a=0$ 时第二式为 $0=3$，矛盾；当 $a=1$ 时由第二式 $x_2=3x_3+3$、第一式 $x_1=-13-11x_3$，
+代入第三式左端恒为 $-4\ne0$，亦矛盾。
+
+\textbf{(3) 无穷多解。}不存在。因为 $|A|=0$ 只可能是 $a=0$ 或 $a=1$，而这两种情形都已判定无解。
+\ans{$a\ne0,1$ 时有唯一解如上；$a=0$ 或 $a=1$ 时无解；不存在有无穷多解的情形。}
+\end{solution}
+
+\begin{solution}
+先用行变换把 $A$ 化出大量零元。将第 $4$ 行减到前三行（行列式不变），再提出前三行的公因子 $1-k$：
+\[
+|A|=\begin{vmatrix}0&1-k&1-k&1-k\\1-k&0&1-k&1-k\\1-k&1-k&0&1-k\\k&k&k&k\end{vmatrix}
+=(1-k)^{3}\begin{vmatrix}0&1&1&1\\1&0&1&1\\1&1&0&1\\k&k&k&k\end{vmatrix}.
+\]
+右边行列式前三行之和为 $(2,2,2,3)$，故用 $R_4\leftarrow R_4-k(R_1+R_2+R_3)$
+把末行 $(k,k,k,k)$ 化为 $(-k,-k,-k,-2k)=-k(1,1,1,2)$，再提出因子 $-k$：
+\[
+|A|=(1-k)^{3}\cdot(-k)\begin{vmatrix}0&1&1&1\\1&0&1&1\\1&1&0&1\\1&1&1&2\end{vmatrix}.
+\]
+对右边行列式交换第一、二行，再逐次消元：
+\[
+\begin{vmatrix}0&1&1&1\\1&0&1&1\\1&1&0&1\\1&1&1&2\end{vmatrix}
+=-\begin{vmatrix}1&0&1&1\\0&1&1&1\\0&1&-1&0\\0&1&0&1\end{vmatrix}
+=-\begin{vmatrix}1&0&1&1\\0&1&1&1\\0&0&-2&-1\\0&0&-1&0\end{vmatrix}
+=-\bigl(1\cdot1\cdot(-1)\bigr)=1,
+\]
+末式按前两列展开，余下二阶子式为 $\begin{vmatrix}-2&-1\\-1&0\end{vmatrix}=-1$。故
+\[
+|A|=-k(1-k)^{3}=k(k-1)^{3},
+\]
+即 $|A|=0$ 当且仅当 $k=0$ 或 $k=1$。
+
+\textbf{$k\ne0,1$ 时} $|A|\ne0$，$r(A)=4$。
+
+\textbf{$k=1$ 时} $A$ 的元素全为 $1$，各行相同，$r(A)=1$。
+
+\textbf{$k=0$ 时} 第四行全为零，而左上角三阶子式
+$\begin{vmatrix}0&1&1\\1&0&1\\1&1&0\end{vmatrix}=2\ne0$，故 $r(A)=3$。
+\ans{$r(A)=\begin{cases}4,&k\ne0,1,\\ 3,&k=0,\\ 1,&k=1.\end{cases}$}
+\end{solution}
+
+\begin{solution}
+记 $A=(a_{ij})_{n\times n}$，$B=(b_{ij})_{n\times n}$，$AB=(c_{ij})_{n\times n}$。
+
+\textbf{(1)} 由定义 $\operatorname{tr}(A+B)=\sum_{i=1}^{n}(a_{ii}+b_{ii})=\sum_{i=1}^{n}a_{ii}+\sum_{i=1}^{n}b_{ii}=\operatorname{tr}A+\operatorname{tr}B$。
+
+\textbf{(2)} $c_{ii}=\sum_{k=1}^{n}a_{ik}b_{ki}$，故
+\[
+\operatorname{tr}(AB)=\sum_{i=1}^{n}\sum_{k=1}^{n}a_{ik}b_{ki}
+=\sum_{k=1}^{n}\sum_{i=1}^{n}b_{ki}a_{ik}=\operatorname{tr}(BA).
+\]
+
+\textbf{(3)} 由 (2)，把 $P^{-1}$ 与 $AP$ 看成两个 $n$ 阶方阵：
+$\operatorname{tr}(P^{-1}AP)=\operatorname{tr}\bigl(P^{-1}(AP)\bigr)=\operatorname{tr}\bigl((AP)P^{-1}\bigr)=\operatorname{tr}A$。
+
+\textbf{(4)} $A=E_{ij}$ 只有第 $i$ 行第 $j$ 列元素为 $1$，它在主对角线上当且仅当 $i=j$，
+故 $\operatorname{tr}E_{ij}=\begin{cases}1,&i=j,\\0,&i\ne j,\end{cases}$ 即 $\operatorname{tr}E_{ij}=\delta_{ij}$。
+\ans{(1)(2)(3) 已证；(4) $\operatorname{tr}E_{ij}=\delta_{ij}$（$i=j$ 时为 $1$，否则为 $0$）。}
+\end{solution}
+
+\begin{solution}
+由 $A\alpha=\theta$ 且 $\alpha\ne\theta$ 知齐次方程组 $AX=\theta$ 有非零解，故 $|A|=0$，从而
+\[
+r(A)\le n-1 .
+\]
+再证反向不等式。若 $r(A)\le n-2$，则 $A$ 的所有 $n-1$ 阶子式全为零，于是 $A^{*}=O$，
+此时对任意 $X$ 都有 $A^{*}X=\theta\ne\alpha$，与非齐次方程组 $A^{*}X=\alpha$ 有解矛盾。
+故 $r(A)\ge n-1$。
+
+结合两端即得 $r(A)=n-1$。
+\rem{关键是“$r(A)<n-1\iff A^{*}=O$”：解的存在性把 $A^{*}\ne O$ 逼了出来，再配上 $r(A)\le n-1$ 夹逼。}
+\end{solution}
+
+\begin{solution}
+先用矩阵行列式引理。对任意列向量 $u,v$，
+\[
+|E+uv^{T}|=1+v^{T}u ,
+\]
+理由：若 $1+v^{T}u=0$，则 $(E+uv^{T})u=u+u(v^{T}u)=0$ 且 $u\ne\theta$，两边同时为零，等式成立；
+若 $1+v^{T}u\ne0$，则
+$(E+uv^{T})\Bigl(E-\dfrac{uv^{T}}{1+v^{T}u}\Bigr)=E$，取行列式即得。
+
+由 $A$ 可逆，
+\[
+|A+\alpha\beta^{T}|=|A|\cdot|E+A^{-1}\alpha\beta^{T}|
+=|A|\bigl(1+\beta^{T}A^{-1}\alpha\bigr)=|A|+\beta^{T}(|A|A^{-1})\alpha .
+\]
+又 $|A|A^{-1}=A^{*}$，代入得
+\[
+|A+\alpha\beta^{T}|=|A|+\beta^{T}A^{*}\alpha .
+\]
+\qed
+\end{solution}

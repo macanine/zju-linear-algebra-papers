@@ -1,0 +1,176 @@
+% 来源：解析据 papers/2018-2019-秋冬-期中-甲.tex 撰写（原卷见 sources/2016-2025-期中-甲-历年真题汇编.pdf 第 5 页）
+
+\begin{solution}
+每行都是「$x$ 倍的单位行加上同一个行向量 $a^{T}$」。记
+$\mathbf{1}=(1,1,\cdots,1)^{T}$，$a=(a_{1},a_{2},\cdots,a_{n})^{T}$，$S=a_{1}+a_{2}+\cdots+a_{n}$，则
+\[
+D=\bigl|xE+\mathbf{1}a^{T}\bigr| .
+\]
+当 $x\ne0$ 时提出因子 $x^{n}$，再用矩阵行列式引理 $|E+uv^{T}|=1+v^{T}u$：
+\[
+D=x^{n}\Bigl|E+\frac1x\mathbf{1}a^{T}\Bigr|
+=x^{n}\Bigl(1+\frac1x a^{T}\mathbf{1}\Bigr)=x^{n}+x^{n-1}S .
+\]
+当 $x=0$ 时矩阵的 $n$ 行全是同一个行向量 $a^{T}$：$n\ge2$ 时秩不超过 $1$（$a=\theta$ 时秩为 $0$），$D=0$；$n=1$ 时 $D=a_{1}$。
+两者都等于 $x^{n-1}(x+S)$ 在 $x=0$ 处的值，故上式对一切 $x$ 成立。
+\ans{$D=x^{n-1}\Bigl(x+\displaystyle\sum_{i=1}^{n}a_{i}\Bigr)$。}
+\end{solution}
+
+\begin{solution}
+这里 $A$ 是置换矩阵：第 $r$ 行只有第 $i_{r}$ 列的元素为 $1$；因 $\sigma$ 是排列，$i_{1},\cdots,i_{n}$ 互不相同，
+故每行每列恰有一个 $1$。
+
+按行列式定义展开，
+\[
+|A|=\sum_{j_{1}j_{2}\cdots j_{n}}(-1)^{\tau(j_{1}j_{2}\cdots j_{n})}
+a_{1j_{1}}a_{2j_{2}}\cdots a_{nj_{n}},
+\]
+其中和式跑遍 $1,2,\cdots,n$ 的所有排列。由 $a_{rj}=1$ 只可能在 $j=i_{r}$ 处，乘积非零当且仅当
+$j_{r}=i_{r}\,(r=1,\cdots,n)$；因 $(i_{1},\cdots,i_{n})$ 本身是排列，只贡献一项，于是
+\[
+|A|=(-1)^{\tau(i_{1}i_{2}\cdots i_{n})}.
+\]
+这里 $\tau(i_{1}i_{2}\cdots i_{n})$ 是排列 $\sigma$ 的逆序数，即满足 $r<s$ 而 $i_{r}>i_{s}$ 的数对 $(r,s)$ 的个数；
+排列的符号按定义就是 $\operatorname{sgn}\sigma=(-1)^{\tau(\sigma)}$，它也可写成
+$\operatorname{sgn}\sigma=\displaystyle\prod_{1\le r<s\le n}\frac{i_{s}-i_{r}}{s-r}$：交换相邻两项正好改变一个逆序号，
+而恒等排列的符号为 $1$。因此
+\ans{$|A|=\operatorname{sgn}\sigma=(-1)^{\tau(i_{1}i_{2}\cdots i_{n})}$，即 $1$ 或 $-1$，由 $\sigma$ 的逆序数决定。}
+\end{solution}
+
+\begin{solution}
+系数矩阵为 $A=\begin{pmatrix}\lambda&1&1\\1&\lambda&1\\1&1&\lambda\end{pmatrix}$。把第 $2,3$ 列加到第 $1$ 列，
+提出公因子 $\lambda+2$，再把第 $1$ 行分别乘 $-1$ 加到第 $2,3$ 行：
+\[
+|A|=(\lambda+2)\begin{vmatrix}1&1&1\\1&\lambda&1\\1&1&\lambda\end{vmatrix}
+=(\lambda+2)\begin{vmatrix}1&1&1\\0&\lambda-1&0\\0&0&\lambda-1\end{vmatrix}
+=(\lambda+2)(\lambda-1)^{2}.
+\]
+故 $\lambda\ne1$ 且 $\lambda\ne-2$ 时 $|A|\ne0$，有唯一解；$\lambda=1$ 与 $\lambda=-2$ 时需另作判断。
+
+\textbf{唯一解（$\lambda\ne1,-2$）。}方程组对 $x_{1},x_{2},x_{3}$ 完全对称而右端又都是 $1$，
+把三个未知量任意互换方程组不变；既然解唯一，解也必须在同一互换下不变，即 $x_{1}=x_{2}=x_{3}=x$。
+代入任一式得 $(\lambda+2)x=1$，故
+\[
+x_{1}=x_{2}=x_{3}=\frac{1}{\lambda+2}.
+\]
+
+\textbf{无穷多解（$\lambda=1$）。}三式都化为 $x_{1}+x_{2}+x_{3}=1$，系数矩阵与增广矩阵的秩同为 $1<3$，
+故有无穷多解，自由度为 $2$，通解为
+\[
+(x_{1},x_{2},x_{3})^{T}=(1,0,0)^{T}+c_{1}(-1,1,0)^{T}+c_{2}(-1,0,1)^{T}\qquad(c_{1},c_{2}\ \text{任意}).
+\]
+
+\textbf{无解（$\lambda=-2$）。}把三式相加，左端为 $(\lambda+2)(x_{1}+x_{2}+x_{3})=0$，右端为 $3$，
+得 $0=3$，矛盾，故方程组无解。
+
+$|A|=0$ 只可能 $\lambda=1$ 或 $\lambda=-2$，情形已穷尽。
+\ans{$\lambda\ne1,-2$ 时唯一解 $x_{1}=x_{2}=x_{3}=\dfrac{1}{\lambda+2}$；$\lambda=1$ 时无穷多解，
+通解为 $(1,0,0)^{T}+c_{1}(-1,1,0)^{T}+c_{2}(-1,0,1)^{T}$；$\lambda=-2$ 时无解。}
+\end{solution}
+
+\begin{solution}
+方程即 $(A-2E)X=A$。由 $A=\mathbf{1}\mathbf{1}^{T}$（$\mathbf{1}=(1,1,1)^{T}$）得
+\[
+A^{2}=\mathbf{1}(\mathbf{1}^{T}\mathbf{1})\mathbf{1}^{T}=3A .
+\]
+猜想 $A-2E$ 的逆为 $\dfrac12(A-E)$，直接验证：
+\[
+(A-2E)\cdot\frac12(A-E)=\frac12\bigl(A^{2}-3A+2E\bigr)=\frac12\cdot 2E=E,
+\]
+故 $A-2E$ 可逆，$(A-2E)^{-1}=\dfrac12(A-E)$，矩阵方程的解唯一，且
+\[
+X=(A-2E)^{-1}A=\frac12(A-E)A=\frac12(A^{2}-A)=\frac12(3A-A)=A .
+\]
+回代验算：$AX=A^{2}=3A$，$A+2X=A+2A=3A$，相符。
+\ans{$X=A=\begin{pmatrix}1&1&1\\1&1&1\\1&1&1\end{pmatrix}$。}
+\end{solution}
+
+\begin{solution}
+证明 $E+AB$ 可逆，只需证明齐次方程组 $(E+AB)X=0$ 只有零解。设实列向量 $X$ 满足
+\[
+(E+AB)X=0,\qquad\text{即}\qquad X=-ABX .
+\]
+记 $Y=BX$，则 $X=-AY$。两边左乘 $Y^{T}$，得
+\[
+Y^{T}X=-Y^{T}AY .
+\]
+$A$ 反对称（$A^{T}=-A$），故对任意实向量 $Y$ 有
+$Y^{T}AY=(Y^{T}AY)^{T}=Y^{T}A^{T}Y=-Y^{T}AY$，即 $Y^{T}AY=0$，于是
+\[
+Y^{T}X=0 .
+\]
+又 $B=\operatorname{diag}(0,0,1,2)$ 是对称矩阵，$Y=BX$，设 $X=(x_{1},x_{2},x_{3},x_{4})^{T}$，则
+\[
+Y^{T}X=(BX)^{T}X=X^{T}B^{T}X=x_{3}^{2}+2x_{4}^{2}.
+\]
+由 $x_{3}^{2}+2x_{4}^{2}=0$ 且 $x_{3},x_{4}$ 为实数得 $x_{3}=x_{4}=0$，于是 $BX=0$，再由 $X=-ABX=0$ 得 $X=0$。
+
+齐次方程组只有零解，故 $E+AB$ 可逆。
+
+顺带可用 Sylvester 恒等式 $|E_{m}+XY|=|E_{n}+YX|$ 求出行列式：取
+$C=\begin{pmatrix}e_{3}&e_{4}\end{pmatrix}$（$4\times2$），$D=\operatorname{diag}(1,2)$，则 $B=CDC^{T}$。
+而 $(C^{T}AC)^{T}=C^{T}A^{T}C=-C^{T}AC$，故 $C^{T}AC=\begin{pmatrix}0&a\\-a&0\end{pmatrix}$，其中 $a=a_{34}$，
+于是
+\[
+|E+AB|=|E_{4}+ACDC^{T}|=|E_{2}+DC^{T}AC|
+=\begin{vmatrix}1&a\\-2a&1\end{vmatrix}=1+2a_{34}^{2}>0 .
+\]
+\rem{注意 $(AB)^{T}=B^{T}A^{T}=-BA$，$AB$ 一般并不反对称，不能直接说“反对称矩阵乘反对称矩阵”就下结论；
+真正起作用的是 $A$ 反对称给出的 $Y^{T}AY\equiv0$，它把 $B$ 的二次型 $x_{3}^{2}+2x_{4}^{2}$ 逼成零。}
+\qed
+\end{solution}
+
+\begin{solution}
+记 $M_{ij}$ 为元素 $a_{ij}$ 的余子式，则 $A_{ij}=(-1)^{i+j}M_{ij}$。
+
+由 $A$ 对称有 $A^{T}=A$。删去 $A$ 的第 $i$ 行、第 $j$ 列所得子矩阵，恰是删去 $A^{T}$ 的第 $j$ 行、
+第 $i$ 列所得子矩阵的转置；转置不改变行列式，故 $M_{ij}=M_{ji}$。又 $(-1)^{i+j}=(-1)^{j+i}$，于是
+\[
+A_{ij}=A_{ji}.
+\]
+代入即得
+\[
+A_{ij}A_{ji}=A_{ij}A_{ij}=(A_{ij})^{2}.
+\]
+\rem{题设 $|A|=0$ 对这条等式其实用不上，对称性已足够；它起作用的地方是伴随矩阵的结构：
+由标准结论，$R(A^{*})$ 依次取 $n,1,0$（对应 $R(A)=n,\,n-1,\,\le n-2$），$|A|=0$ 即 $R(A)\le n-1$ 时 $R(A^{*})\le1$。$R(A)\le n-2$ 时全部 $A_{ij}=0$；
+$R(A)=n-1$ 时由秩－零化度定理，$AX=\theta$ 的解空间是一维的，取非零实解 $\alpha$，
+则 $A^{*}=c\alpha\alpha^{T}$（$AA^{*}=O$ 说明 $A^{*}$ 的每列都在 $\ker A$ 内，$A^{*}A=O$ 说明每行都在
+$\ker A^{T}=\ker A$ 内），即 $A_{ij}=c\alpha_{i}\alpha_{j}$，同样得到上式。}
+\qed
+\end{solution}
+
+\begin{solution}
+取 $2n$ 阶矩阵
+\[
+Q=\begin{pmatrix}E&E\\E&-E\end{pmatrix},\qquad
+Q^{2}=\begin{pmatrix}2E&O\\O&2E\end{pmatrix}=2E_{2n},
+\]
+故 $Q$ 可逆，$Q^{-1}=\dfrac12Q$（只要域 $P$ 的特征不等于 $2$，如实数域）。对 $M$ 作行列变换 $M\mapsto QMQ$，
+秩不变，而
+\[
+QMQ=\begin{pmatrix}A+B&A+B\\A-B&B-A\end{pmatrix}\begin{pmatrix}E&E\\E&-E\end{pmatrix}
+=\begin{pmatrix}2(A+B)&O\\O&2(A-B)\end{pmatrix}.
+\]
+如第一块行：$(A+B)E+(A+B)E=2(A+B)$，$(A+B)E-(A+B)E=O$，第二块行同理。
+分块对角矩阵的秩等于各对角块秩之和，又 $2\ne0$ 时 $R(2C)=R(C)$，故
+\[
+R(M)=R(QMQ)=R\bigl(2(A+B)\bigr)+R\bigl(2(A-B)\bigr)=R(A+B)+R(A-B),
+\]
+特别地 $R(M)\ge R(A+B)+R(A-B)$。
+\qed
+\end{solution}
+
+\begin{solution}
+由 $B=E+AB$ 得
+\[
+B-AB=E,\qquad\text{即}\qquad (E-A)B=E .
+\]
+$E-A$ 与 $B$ 都是 $n$ 阶方阵，上式说明 $B$ 是 $E-A$ 的右逆，故 $B$ 可逆且 $B^{-1}=E-A$。
+于是也有 $B(E-A)=E$，即
+\[
+B-BA=E,\qquad BA=B-E .
+\]
+而由已知等式移项立即得到 $AB=B-E$，两式比较得 $AB=BA$。
+\qed
+\end{solution}

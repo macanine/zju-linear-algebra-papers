@@ -4,6 +4,7 @@
 % =====================================================================
 
 \usepackage{amsmath,amssymb}
+\usepackage{amsthm}          % 提供 \qed，供解析中的证明收尾
 \usepackage{geometry}
 \geometry{a4paper,top=2.5cm,bottom=2.3cm,left=2.3cm,right=2.3cm,headsep=0.55cm}
 \usepackage{enumitem}
@@ -26,22 +27,56 @@
 \providecommand{\booktitle}{历年试题合集}
 \newcommand{\currentpaper}{}
 
+% 解析模式：构建脚本在 \input{preamble.tex} 之后置 \solutionsmodetrue。
+% 打开后题目不再留作答空白，卷头改称“试题解析”，并启用 solution 环境。
+% 解析卷没有作答留白，正文可以更密：行距由 1.28 收到 1.22（实测 58 页减到 56 页，
+% 且各卷末页不再只余一两行）。
+\newif\ifsolutionsmode
+\solutionsmodefalse
+\AtBeginDocument{\ifsolutionsmode\linespread{1.22}\selectfont\fi}
+
 % ---------- 题目环境 ----------
 % \begin{problem}{15 分}{9cm} 题干 \end{problem}
-% 第一参数：分值（留空则只显示题号）；第二参数：题后解答留白高度
+% 第一参数：分值（留空则只显示题号）；第二参数：题后解答留白高度（解析模式下忽略）
 \newcounter{problem}
 \newcommand{\resetproblem}{\setcounter{problem}{0}}
 \newcommand{\problemspace}{0pt}
 \newenvironment{problem}[2]{%
   \par\addvspace{1.0em}%
-  \needspace{\dimexpr#2+2.4\baselineskip\relax}%
+  \ifsolutionsmode
+    \needspace{4.5\baselineskip}%
+  \else
+    \needspace{\dimexpr#2+2.4\baselineskip\relax}%
+  \fi
   \renewcommand{\problemspace}{#2}%
   \stepcounter{problem}%
   \noindent\textbf{\theproblem.}%
   \ifx\relax#1\relax\else\hspace{0.25em}\textbf{（#1）}\fi
   \hspace{0.4em}\ignorespaces
 }{%
-  \par\nobreak\vspace{\problemspace}\par
+  \par\nobreak\ifsolutionsmode\vspace{0.45em}\else\vspace{\problemspace}\fi\par
+}
+
+% ---------- 解析环境（仅解析模式使用） ----------
+% \begin{solution} 推导过程 \end{solution}：渲染为“解　推导过程”
+\newenvironment{solution}{%
+  \par\addvspace{0.15em}\nopagebreak[3]%
+  \needspace{2.8\baselineskip}%
+  \noindent\textbf{解}\hspace{0.6em}\ignorespaces
+}{%
+  \par\addvspace{0.55em}%
+}
+
+% \ans{...}：结论行，凡题目要求具体结果的都在解析末尾用它给出答案
+\newcommand{\ans}[1]{%
+  \par\addvspace{0.3em}\nopagebreak[3]%
+  \noindent\textbf{答案}\hspace{0.6em}#1\par\addvspace{0.1em}%
+}
+
+% \rem{...}：评注，只在能点明关键思想或常见错处时用，每卷不超过三处
+\newcommand{\rem}[1]{%
+  \par\addvspace{0.3em}\nopagebreak[3]%
+  \noindent{\small\textbf{注}\hspace{0.5em}#1}\par\addvspace{0.1em}%
 }
 
 % 填空作答横线：\blank 或 \blank[5cm]
@@ -64,7 +99,7 @@
   \begin{center}
     {\Large\bfseries\ziju{0.12} \schoolname}\\[0.45em]
     {\large \coursename}\\[0.6em]
-    {\Large\bfseries #1 学年\quad #2\quad #3考试试卷}\\[0.65em]
+    {\Large\bfseries #1 学年\quad #2\quad #3考试\ifsolutionsmode 试题解析\else 试卷\fi}\\[0.65em]
     \rule{\linewidth}{1.1pt}
   \end{center}
   \vspace{0.4em}
