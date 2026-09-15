@@ -148,10 +148,10 @@ python3 tools/build.py --check
 
 ## 6. 下载链接
 
-README 的表格只放 GitHub raw 链接，CDN 用一句话交代替换规则（把
+README 只放 GitHub raw 链接，不解释 CDN（jsDelivr 与 raw 路径相同，把
 `raw.githubusercontent.com/macanine/zju-linear-algebra-papers/main` 换成
-`cdn.jsdelivr.net/gh/macanine/zju-linear-algebra-papers@main`），两者路径相同。文件名含中文，
-必须用 `quote(path, safe='/')` 做百分号编码，不要直接写中文进 URL：
+`cdn.jsdelivr.net/gh/macanine/zju-linear-algebra-papers@main` 即得，写在这里备查，不要写进 README）。
+文件名含中文，必须用 `quote(path, safe='/')` 做百分号编码，不要直接写中文进 URL：
 
 ```
 https://raw.githubusercontent.com/macanine/zju-linear-algebra-papers/main/out/<文件名>.pdf
